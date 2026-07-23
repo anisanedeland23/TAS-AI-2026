@@ -40,10 +40,10 @@ Sistem end-to-end yang menangkap data suhu & kelembaban dari sensor IoT secara *
 ## 🏗️ Arsitektur Sistem
 
 ```
-┌─────────────────┐     MQTT      ┌──────────────────┐     INSERT     ┌─────────────────┐
+┌─────────────────┐     MQTT      ┌──────────────────┐     INSERT        ┌─────────────────┐
 │   MQTT Broker    │──────────────▶│  Railway Cloud    │───────────────▶│  Supabase        │
-│   (HiveMQ)       │   subscribe   │  subscriber.py    │    SQL         │  PostgreSQL      │
-└─────────────────┘                └──────────────────┘                └────────┬─────────┘
+│   (HiveMQ)       │   subscribe   │  subscriber.py    │    SQL          │  PostgreSQL      │
+└─────────────────┘                └──────────────────┘                  └────────┬─────────┘
                                                                                    │
                                                                           pull data│(paginated)
                                                                                    ▼
@@ -59,8 +59,8 @@ Sistem end-to-end yang menangkap data suhu & kelembaban dari sensor IoT secara *
                                                                      ┌─────────────┴─────────────┐
                                                                      ▼                           ▼
                                                           ┌────────────────────┐      ┌────────────────────┐
-                                                          │  Prophet Model      │      │  Groq LLM API       │
-                                                          │  (forecasting)      │      │  (AI Insight)        │
+                                                          │  Prophet Model     │       │  Groq LLM API     │
+                                                          │  (forecasting)     │       │  (AI Insight)     │
                                                           └────────────────────┘      └────────────────────┘
 ```
 
