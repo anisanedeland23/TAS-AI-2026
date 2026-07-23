@@ -1,2 +1,6 @@
 paho-mqtt
 supabase
+streamlit
+requests
+prophet
+scikit-learn
